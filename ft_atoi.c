@@ -1,4 +1,4 @@
-﻿/*
+/*
 ОПИСАНИЕ
 Функция atoi() конвертирует начальную часть строки, на которую указывает nptr,
 в целое число. Функция ведет себя так же, как strtol(nptr, (char **)NULL, 10);
@@ -16,9 +16,7 @@ int		ft_atoi(const char *nptr)
 	int	neg;
 
 	res = 0;
-	neg = 1;
-	while ((*nptr == ' ') || (*nptr == '\n') || (*nptr == '\t') \
-			|| (*nptr == '\v') || (*nptr == '\f') || (*nptr == '\r'))
+	neg = 1; || (*nptr == '\f') || (*nptr == '\r'))
 		nptr++;
 	if (*nptr == '-')
 		neg *= -1;
