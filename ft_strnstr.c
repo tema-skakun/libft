@@ -1,76 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/19 16:55:39 by fdarkhaw          #+#    #+#             */
+/*   Updated: 2021/10/25 17:43:50 by fdarkhaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 ОПИСАНИЕ
 Функция strnstr ();
 находит первое вхождение строки, заканчивающейся нулем,
-Fa little в строке Fa big, где выполняется поиск не более чем
+Fa needle в строке Fa haystack, где выполняется поиск не более чем
 Fa len символов. Символы, которые появляются после символа "\0",
 не ищутся. Поскольку функция strnstr();
 является API, специфичным для Fx, ее следует использовать
 только тогда, когда переносимость не вызывает беспокойства.
 
 ВОЗВРАЩАЕМЫЕ ЗНАЧЕНИЯ
-Если Fa little является пустой строкой, возвращается Fa big;
-если Fa little нигде не встречается в Fa big, возвращается NULL;
+Если Fa needle является пустой строкой, возвращается Fa haystack;
+если Fa needle нигде не встречается в Fa haystack, возвращается NULL;
 в противном случае возвращается указатель на первый символ
-первого вхождения Fa little.
+первого вхождения Fa needle.
 */
 
 #include "libft.h"
 
-char	*ft_strnstr (const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t b;
-	size_t l;
+	size_t	b;
+	size_t	l;
 
 	b = 0;
-	if (little[0] == '\0')
-		return ((char *)big);
-	while (big[b] != '\0')
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[b] != '\0')
 	{
 		l = 0;
-		while (big[b + l] == little[l] && (b + l) < len)
+		while (haystack[b + l] == needle[l] && (b + l) < len)
 		{
-			if (big[b + l] == '\0' && little[l] == '\0')
-				return ((char *)big + b);
+			if (haystack[b + l] == '\0' && needle[l] == '\0')
+				return ((char *)haystack + b);
 			l++;
 		}
-		if (little[l] == '\0')
-			return ((char *)big + b);
+		if (needle[l] == '\0')
+			return ((char *)haystack + b);
 		b++;
 	}
 	return (NULL);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
 int	main(void)
 {
-	char	haystack[30] = "aaabcabcd";
-	char	needle[10] = "aaab";
-	//char	*empty = (char*)"";
-	int		n = 5;
+	char	haystack[30] = "aaabcabcdaa";
+	char	needle[10] = "ab";
+	int		n = 4;
 
 	printf("ft	: %s\n", ft_strnstr(haystack, needle, n));
 	printf("c	: %s\n", strnstr(haystack, needle, n));
 	return (0);
 }
-/*
-	char haystack[30] = "aaabcabcd";
-	char needle[10] = "aabc";
-	char * empty = (char*)"";
-	
-	+1 check(ft_strnstr(haystack, needle, 0) == 0); showLeaks();+
-	+2 check(ft_strnstr(haystack, needle, -1) == haystack + 1); showLeaks();+ ? c:(null)
-	+3 check(ft_strnstr(haystack, "a", -1) == haystack); showLeaks();+
-	+4 check(ft_strnstr(haystack, "c", -1) == haystack + 4); showLeaks();+
-	+5 check(ft_strnstr(empty, "", -1) == empty); showLeaks();+
-	+6 check(ft_strnstr(empty, "", 0) == empty); showLeaks();+
-	+7 check(ft_strnstr(empty, "coucou", -1) == 0); showLeaks();+
-	+8 check(ft_strnstr(haystack, "aaabc", 5) == haystack); showLeaks();+
-	+9 check(ft_strnstr(empty, "12345", 5) == 0); showLeaks();+
-	+10 check(ft_strnstr(haystack, "abcd", 9) == haystack + 5); showLeaks();+
-	+11 check(ft_strnstr(haystack, "cd", 8) == NULL); showLeaks();+
-	+12 mbueno-g check(ft_strnstr(haystack, "a", 1) == haystack); showLeaks();+
-
 */
