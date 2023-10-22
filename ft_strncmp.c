@@ -50,12 +50,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	main(void)
 {
-	int		n = 5;
-	char	*str1 = "aaabc";
-	char	*str2 = "aaab";
+	int		n = 3;
 
-	printf("ft	: %d\n", ft_strncmp(str1, str2, n));
-	printf("c	: %d\n", strncmp(str1, str2, n));
+	char	*str1 = "ART\0";
+	char	*str2 = "FDA\0";
+
+	printf("ft\t:\t%d\n", ft_strncmp(str1, str2, n));
+	printf("c\t:\t%d\n", strncmp(str1, str2, n));
 	return (0);
 }
 */
