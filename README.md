@@ -1,6 +1,6 @@
 # libft
 
-This project is written in C language. I implemented my library, which I used in subsequent projects such as cub3D, push_swap, minishell and so on.
+This project is written in C language. I implemented my library, which I used in subsequent projects such as cub3D, push_swap, minishell, fdf and so on.
 
 ### Mandatory part:
 
@@ -21,8 +21,6 @@ struct s_list *next;
 ```
 
 ft_lstnew, ft_lstadd_front, ft_lstsize, ft_lstlast, ft_lstadd_back, ft_lstdelone, ft_lstclear, ft_lstiter, ft_lstmap, 
-
-
 
 ## Peer evaluations video:
  - [lbellona](https://disk.yandex.ru/d/ErLayepS1f2e7A)
